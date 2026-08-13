@@ -1,0 +1,162 @@
+.combos-section {
+  padding: 48px 0;
+}
+
+.comborail {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.comborail:focus-visible {
+  outline: 2px solid var(--accent, #f0a03c);
+  outline-offset: 4px;
+}
+
+.combo {
+  scroll-snap-align: start;
+  flex: 0 0 280px;
+  border-radius: 22px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.combo.hero-combo {
+  flex: 0 0 320px;
+  border: 2px solid var(--accent, #f0a03c);
+}
+
+.tray {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.save {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 8px;
+}
+
+.flag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent, #f0a03c);
+  color: #17102b;
+}
+
+.stack {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.it {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  text-align: center;
+  max-width: 70px;
+}
+
+.it img,
+.it .tile {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.3;
+}
+
+.plus {
+  opacity: 0.4;
+  font-size: 14px;
+}
+
+.body h3 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.cnt {
+  font-size: 12px;
+  opacity: 0.6;
+  margin: 2px 0 6px;
+}
+
+.inc {
+  font-size: 13px;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+.prow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.prow strong {
+  font-size: 20px;
+}
+
+.prow s {
+  opacity: 0.5;
+  font-size: 14px;
+}
+
+.prow em {
+  font-style: normal;
+  color: var(--accent, #f0a03c);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.fine {
+  font-size: 11px;
+  opacity: 0.5;
+  margin: 4px 0 8px;
+}
+
+.swipecue {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+  font-size: 12px;
+  opacity: 0.5;
+  margin-top: 12px;
+}
+
+@media (min-width: 960px) {
+  .swipecue {
+    display: none;
+  }
+}
+
+.combos-empty {
+  text-align: center;
+  opacity: 0.6;
+  padding: 40px 0;
+}
