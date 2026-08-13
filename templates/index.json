@@ -199,6 +199,65 @@
         "lede": "Swipe through the boxes people order most. Each one is already priced below buying the same products on their own.",
         "bundle_link": "#bunddles"
       }
+    },
+    "bundles_FBVP6w": {
+      "type": "bundles",
+      "blocks": {
+        "tier_ALJXGU": {
+          "type": "tier",
+          "settings": {
+            "tag": "Starter",
+            "product_count": 2,
+            "product_1": "",
+            "product_2": "",
+            "product_3": "",
+            "product_4": "",
+            "product_5": "",
+            "perk_2": "Covers kitchen and laundry",
+            "highlighted": false
+          }
+        },
+        "tier_DFV7Ca": {
+          "type": "tier",
+          "settings": {
+            "tag": "Most popular",
+            "product_count": 3,
+            "product_1": "",
+            "product_2": "",
+            "product_3": "",
+            "product_4": "",
+            "product_5": "",
+            "perk_2": "Covers kitchen and laundry",
+            "highlighted": true
+          }
+        },
+        "tier_eTWEtN": {
+          "type": "tier",
+          "settings": {
+            "tag": "Whole home",
+            "product_count": 5,
+            "product_1": "",
+            "product_2": "",
+            "product_3": "",
+            "product_4": "",
+            "product_5": "",
+            "perk_2": "Covers kitchen and laundry",
+            "highlighted": false
+          }
+        }
+      },
+      "block_order": [
+        "tier_ALJXGU",
+        "tier_DFV7Ca",
+        "tier_eTWEtN"
+      ],
+      "name": "Bundles",
+      "settings": {
+        "kicker": "Build your bundle",
+        "heading": "One box. Every room.",
+        "lede": "Mix and match across kitchen, laundry, home and skin. One flat price, no code needed, free shipping either way.",
+        "build_link": ""
+      }
     }
   },
   "order": [
@@ -206,6 +265,7 @@
     "featured_collection",
     "hero_gMiQQK",
     "shop_BDNaxb",
-    "combos_cjVLJw"
+    "combos_cjVLJw",
+    "bundles_FBVP6w"
   ]
 }

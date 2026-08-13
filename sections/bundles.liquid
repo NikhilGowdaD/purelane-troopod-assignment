@@ -1,0 +1,195 @@
+{{ 'section-bundles.css' | asset_url | stylesheet_tag }}
+
+<section class="sec bundles-section" id="bundles" data-section-id="{{ section.id }}">
+  <div class="wrap">
+
+    <div class="glass sec-pad panel-head" style="margin-bottom:16px">
+      {%- if section.settings.kicker != blank -%}
+        <span class="kicker">{{ section.settings.kicker }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="d2" style="margin-top:12px">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.lede != blank -%}
+        <p class="lede" style="margin:0 auto">{{ section.settings.lede }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- assign tier_blocks = section.blocks | where: 'type', 'tier' -%}
+    {%- if tier_blocks.size > 0 -%}
+      <div class="tiers">
+        {%- for block in tier_blocks -%}
+          {%- assign compare_total = block.settings.compare_at_total -%}
+          {%- assign price = block.settings.price -%}
+          {%- assign per_product = price | divided_by: block.settings.product_count | round: 0 -%}
+          <article class="glass tier{% if block.settings.highlighted %} best{% endif %}" {{ block.shopify_attributes }}>
+            <span class="tag">{{ block.settings.tag }}</span>
+
+            <div class="tierpix{% if block.settings.product_count >= 5 %} five{% endif %}" aria-hidden="true">
+              {%- for i in (1..5) -%}
+                {%- assign product_key = 'product_' | append: i -%}
+                {%- assign product = block.settings[product_key] -%}
+                {%- if product != blank -%}
+                  <span class="pimg" role="img" aria-label="{{ product.title }}">
+                    {%- if product.featured_image != blank -%}
+                      {{ product.featured_image | image_url: width: 200 | image_tag: loading: 'lazy' }}
+                    {%- endif -%}
+                  </span>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+
+            <div class="qty">{{ block.settings.product_count }}<small>Products</small></div>
+            <div class="price">
+              {{ price | money }}
+              {%- if compare_total > price -%}
+                <s>{{ compare_at_total | money }}</s>
+              {%- endif -%}
+            </div>
+            <p class="body-s" style="font-size:12px">Flat {{ per_product | money }} per product</p>
+
+            <ul>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>
+                Pick any {{ block.settings.product_count }} products
+              </li>
+              {%- if block.settings.perk_2 != blank -%}
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>
+                  {{ block.settings.perk_2 }}
+                </li>
+              {%- endif -%}
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>
+                Free shipping across India
+              </li>
+            </ul>
+
+            <a class="btn {% if block.settings.highlighted %}btn-primary{% else %}btn-ghost{% endif %}" href="{{ section.settings.build_link | default: '#shop' }}">
+              Build this box
+              {%- if block.settings.highlighted -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m-5-6 6 6-6 6"/></svg>
+              {%- endif -%}
+            </a>
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <p class="bundles-empty">Add tier blocks in the section settings to show bundles here.</p>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bundles",
+  "tag": "section",
+  "class": "section-bundles",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker text",
+      "default": "Build your bundle"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "One box. Every room."
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "label": "Subtext",
+      "default": "Mix and match across kitchen, laundry, home and skin. One flat price, no code needed, free shipping either way."
+    },
+    {
+      "type": "url",
+      "id": "build_link",
+      "label": "\"Build this box\" button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tier",
+      "name": "Tier",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tier label",
+          "default": "Starter"
+        },
+        {
+          "type": "range",
+          "id": "product_count",
+          "label": "Number of products",
+          "min": 2,
+          "max": 5,
+          "step": 1,
+          "default": 2
+        },
+        {
+          "type": "product",
+          "id": "product_1",
+          "label": "Product 1"
+        },
+        {
+          "type": "product",
+          "id": "product_2",
+          "label": "Product 2"
+        },
+        {
+          "type": "product",
+          "id": "product_3",
+          "label": "Product 3 (optional)"
+        },
+        {
+          "type": "product",
+          "id": "product_4",
+          "label": "Product 4 (optional)"
+        },
+        {
+          "type": "product",
+          "id": "product_5",
+          "label": "Product 5 (optional)"
+        },
+        {
+          "type": "number",
+          "id": "price",
+          "label": "Bundle price"
+        },
+        {
+          "type": "number",
+          "id": "compare_at_total",
+          "label": "Compare-at total"
+        },
+        {
+          "type": "text",
+          "id": "perk_2",
+          "label": "Second perk line",
+          "default": "Covers kitchen and laundry"
+        },
+        {
+          "type": "checkbox",
+          "id": "highlighted",
+          "label": "Highlight this tier (Most popular style)",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bundles",
+      "blocks": [
+        { "type": "tier", "settings": { "tag": "Starter", "product_count": 2 } },
+        { "type": "tier", "settings": { "tag": "Most popular", "product_count": 3, "highlighted": true } },
+        { "type": "tier", "settings": { "tag": "Whole home", "product_count": 5 } }
+      ]
+    }
+  ]
+}
+{% endschema %}
