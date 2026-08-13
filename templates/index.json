@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner": {
@@ -29,33 +38,32 @@
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
         "image_behavior": "none",
+        "desktop_content_position": "bottom-center",
         "desktop_content_alignment": "center",
+        "show_text_box": false,
         "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
         "show_text_below": false
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
+        "collection": "all",
+        "products_to_show": 8,
         "title": "Featured products",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -63,13 +71,141 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 44,
         "padding_bottom": 36
+      }
+    },
+    "hero_gMiQQK": {
+      "type": "hero",
+      "blocks": {
+        "bundle_slide_CM8Y68": {
+          "type": "bundle_slide",
+          "settings": {
+            "product_1": "purelane-copper-cleaner",
+            "product_2": "purelane-kitchen-cleaner",
+            "product_3": "",
+            "label": "Any 2",
+            "bundle_price": 600,
+            "compare_at_price": 1000,
+            "savings_label": "2$ off"
+          }
+        },
+        "badge_Pd86Kr": {
+          "type": "badge",
+          "settings": {
+            "icon": "",
+            "label": "Plant powered"
+          }
+        },
+        "badge_bVppLW": {
+          "type": "badge",
+          "settings": {
+            "icon": "",
+            "label": "Safe for kids & pets"
+          }
+        },
+        "badge_BGPNYU": {
+          "type": "badge",
+          "settings": {
+            "icon": "",
+            "label": "Zero harsh chemicals"
+          }
+        },
+        "bundle_slide_4kKtHF": {
+          "type": "bundle_slide",
+          "settings": {
+            "product_1": "purelane-multi-surface-spray",
+            "product_2": "",
+            "product_3": "",
+            "label": "Single bottle",
+            "bundle_price": 200,
+            "compare_at_price": 299,
+            "savings_label": "33% off"
+          }
+        }
+      },
+      "block_order": [
+        "bundle_slide_CM8Y68",
+        "badge_Pd86Kr",
+        "badge_bVppLW",
+        "badge_BGPNYU",
+        "bundle_slide_4kKtHF"
+      ],
+      "name": "Hero",
+      "settings": {
+        "heading": "Clean That Lasts",
+        "subheading": "Homecare that works on the toughest grime, made from plants.",
+        "primary_button_label": "Shop now",
+        "primary_button_link": "",
+        "secondary_button_label": "How it works",
+        "secondary_button_link": ""
+      }
+    },
+    "shop_BDNaxb": {
+      "type": "shop",
+      "name": "Shop",
+      "settings": {
+        "kicker": "Bestsellers",
+        "heading": "Loved by 30,000 homes",
+        "collection": ""
+      }
+    },
+    "combos_cjVLJw": {
+      "type": "combos",
+      "blocks": {
+        "combo_K3EJFC": {
+          "type": "combo",
+          "settings": {
+            "combo": "laundry-care-bundle"
+          }
+        },
+        "combo_cmegE3": {
+          "type": "combo",
+          "settings": {
+            "combo": "complete-home-bundle"
+          }
+        },
+        "combo_EgpDUb": {
+          "type": "combo",
+          "settings": {
+            "combo": "hard-water-solution-kit"
+          }
+        },
+        "combo_eGx7TD": {
+          "type": "combo",
+          "settings": {
+            "combo": "bathroom-deep-clean"
+          }
+        },
+        "combo_qhq68H": {
+          "type": "combo",
+          "settings": {
+            "combo": "kitchen-essentials"
+          }
+        }
+      },
+      "block_order": [
+        "combo_K3EJFC",
+        "combo_cmegE3",
+        "combo_EgpDUb",
+        "combo_eGx7TD",
+        "combo_qhq68H"
+      ],
+      "name": "Combos",
+      "settings": {
+        "kicker": "Pre-built to save you money",
+        "heading": "Best selling combos",
+        "lede": "Swipe through the boxes people order most. Each one is already priced below buying the same products on their own.",
+        "bundle_link": "#bunddles"
       }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "hero_gMiQQK",
+    "shop_BDNaxb",
+    "combos_cjVLJw"
   ]
 }
