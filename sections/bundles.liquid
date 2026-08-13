@@ -22,6 +22,9 @@
           {%- assign compare_total = block.settings.compare_at_total -%}
           {%- assign price = block.settings.price -%}
           {%- assign per_product = price | divided_by: block.settings.product_count | round: 0 -%}
+          {%- assign price_cents = price | times: 100 -%}
+          {%- assign compare_total_cents = compare_total | times: 100 -%}
+          {%- assign per_product_cents = per_product | times: 100 -%}
           <article class="glass tier{% if block.settings.highlighted %} best{% endif %}" {{ block.shopify_attributes }}>
             <span class="tag">{{ block.settings.tag }}</span>
 
@@ -41,12 +44,12 @@
 
             <div class="qty">{{ block.settings.product_count }}<small>Products</small></div>
             <div class="price">
-              {{ price | money }}
+              {{ price_cents | money }}
               {%- if compare_total > price -%}
-                <s>{{ compare_at_total | money }}</s>
+                <s>{{ compare_total_cents | money }}</s>
               {%- endif -%}
             </div>
-            <p class="body-s" style="font-size:12px">Flat {{ per_product | money }} per product</p>
+            <p class="body-s" style="font-size:12px">Flat {{ per_product_cents | money }} per product</p>
 
             <ul>
               <li>

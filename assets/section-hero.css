@@ -5,6 +5,27 @@
   --ink: #17102b;
 }
 
+.hero .rule {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.hero .rule i {
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.3;
+  display: block;
+}
+
+.hero .rule svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
 .hero {
   position: relative;
   padding: 48px 0;

@@ -29,7 +29,8 @@
             <article class="glass combo{% if combo.featured.value %} hero-combo{% endif %}" {{ block.shopify_attributes }}>
               <div class="tray">
                 {%- assign savings = combo.compare_at_total.value | minus: combo.combo_price.value -%}
-                <span class="save">You save {{ savings | money }}</span>
+                {%- assign savings_cents = savings | times: 100 -%}
+                <span class="save">You save {{ savings_cents | money }}</span>
                 {%- if combo.flag_label.value != blank -%}
                   <span class="flag">{{ combo.flag_label.value }}</span>
                 {%- endif -%}
@@ -56,10 +57,12 @@
                 {%- if combo.description.value != blank -%}
                   <p class="inc">{{ combo.description.value }}</p>
                 {%- endif -%}
+                {%- assign combo_price_cents = combo.combo_price.value | times: 100 -%}
+                {%- assign compare_total_cents = combo.compare_at_total.value | times: 100 -%}
                 <div class="prow">
-                  <strong>{{ combo.combo_price.value | money }}</strong>
-                  <s>{{ combo.compare_at_total.value | money }}</s>
-                  <em>Save {{ savings | money }}</em>
+                  <strong>{{ combo_price_cents | money }}</strong>
+                  <s>{{ compare_total_cents | money }}</s>
+                  <em>Save {{ savings_cents | money }}</em>
                 </div>
                 <div class="fine">Inclusive of all taxes &middot; COD available</div>
                 <a class="btn {% if combo.featured.value %}btn-primary{% else %}btn-ghost{% endif %}" href="{{ section.settings.bundle_link | default: '#bundles' }}">
