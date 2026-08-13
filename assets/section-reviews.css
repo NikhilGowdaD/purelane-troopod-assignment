@@ -1,0 +1,105 @@
+.revband {
+  padding: 48px 0;
+  overflow: hidden;
+}
+
+.revhead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.agg {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.agg .st {
+  color: var(--accent, #f0a03c);
+  letter-spacing: 1px;
+}
+
+.revrail {
+  overflow: hidden;
+  width: 100%;
+}
+
+.revtrack {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.revrail:hover .revtrack,
+.revtrack.paused {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revtrack {
+    animation: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+}
+
+.rcard {
+  flex: 0 0 280px;
+  border-radius: 18px;
+  padding: 18px;
+  scroll-snap-align: start;
+}
+
+.rcard .st {
+  color: var(--accent, #f0a03c);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.rcard h5 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.rcard p {
+  font-size: 13px;
+  opacity: 0.8;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.who {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.who svg {
+  width: 14px;
+  height: 14px;
+  color: var(--accent, #f0a03c);
+  flex-shrink: 0;
+}
+
+.who span {
+  opacity: 0.6;
+}
+
+.reviews-empty {
+  text-align: center;
+  opacity: 0.6;
+  padding: 40px 24px;
+}

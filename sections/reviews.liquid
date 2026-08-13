@@ -1,0 +1,108 @@
+{{ 'section-reviews.css' | asset_url | stylesheet_tag }}
+
+<section class="sec revband" id="reviews" data-section-id="{{ section.id }}">
+  <div class="wrap">
+    <div class="revhead">
+      {%- if section.settings.kicker != blank -%}
+        <span class="kicker">{{ section.settings.kicker }}</span>
+      {%- endif -%}
+      {%- if section.settings.average_rating != blank -%}
+        <span class="agg">
+          <span class="st" aria-hidden="true">
+            {%- for i in (1..5) -%}&#9733;{%- endfor -%}
+          </span>
+          <b>{{ section.settings.average_rating }}</b> from {{ section.settings.review_count_label }}
+        </span>
+      {%- endif -%}
+      {%- if section.settings.homes_label != blank -%}
+        <span class="agg">Loved by <b>{{ section.settings.homes_label }}</b></span>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- assign review_blocks = section.blocks | where: 'type', 'review' -%}
+  {%- if review_blocks.size > 0 -%}
+    <div class="revrail" aria-label="Customer reviews">
+      <div class="revtrack" data-reviews-track>
+        {%- comment -%} render twice for seamless marquee loop, second copy is aria-hidden to avoid duplicate screen-reader content {%- endcomment -%}
+        {%- for pass in (1..2) -%}
+          {%- for block in review_blocks -%}
+            {%- assign review = block.settings.review -%}
+            {%- if review != blank -%}
+              <article class="glass-2 rcard" {% if pass == 2 %}aria-hidden="true"{% endif %} {% if pass == 1 %}{{ block.shopify_attributes }}{% endif %}>
+                <div class="st" aria-hidden="true">
+                  {%- assign stars = review.star_rating.value | default: 5 -%}
+                  {%- for i in (1..stars) -%}&#9733;{%- endfor -%}
+                </div>
+                <h5>{{ review.headline.value }}</h5>
+                <p>{{ review.quote.value }}</p>
+                <div class="who">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>
+                  <b>{{ review.reviewer_name.value }}</b>
+                  <span>&middot; {{ review.product_tag.value }}</span>
+                </div>
+              </article>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- else -%}
+    <p class="reviews-empty">Add review blocks in the section settings to show reviews here.</p>
+  {%- endif -%}
+</section>
+
+<script src="{{ 'section-reviews.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Reviews",
+  "tag": "section",
+  "class": "section-reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker text",
+      "default": "That's what they said"
+    },
+    {
+      "type": "text",
+      "id": "average_rating",
+      "label": "Average rating",
+      "default": "4.8"
+    },
+    {
+      "type": "text",
+      "id": "review_count_label",
+      "label": "Review count label",
+      "default": "8,000+ reviews"
+    },
+    {
+      "type": "text",
+      "id": "homes_label",
+      "label": "Homes label",
+      "default": "12 lakh+ homes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "metaobject",
+          "id": "review",
+          "label": "Review entry",
+          "metaobject_type": "review"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews"
+    }
+  ]
+}
+{% endschema %}

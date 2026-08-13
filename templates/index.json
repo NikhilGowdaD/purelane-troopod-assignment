@@ -258,6 +258,55 @@
         "lede": "Mix and match across kitchen, laundry, home and skin. One flat price, no code needed, free shipping either way.",
         "build_link": ""
       }
+    },
+    "reviews_Wk6d3c": {
+      "type": "reviews",
+      "blocks": {
+        "review_tBqcm9": {
+          "type": "review",
+          "settings": {
+            "review": "verified-buyer"
+          }
+        },
+        "review_fPKJTy": {
+          "type": "review",
+          "settings": {
+            "review": "rohit-s"
+          }
+        },
+        "review_Mckgbh": {
+          "type": "review",
+          "settings": {
+            "review": "sunita"
+          }
+        },
+        "review_aUaU7Q": {
+          "type": "review",
+          "settings": {
+            "review": "priya"
+          }
+        },
+        "review_KTNyD4": {
+          "type": "review",
+          "settings": {
+            "review": "anita"
+          }
+        }
+      },
+      "block_order": [
+        "review_tBqcm9",
+        "review_fPKJTy",
+        "review_Mckgbh",
+        "review_aUaU7Q",
+        "review_KTNyD4"
+      ],
+      "name": "Reviews",
+      "settings": {
+        "kicker": "That's what they said",
+        "average_rating": "4.8",
+        "review_count_label": "8,000+ reviews",
+        "homes_label": "12 lakh+ homes"
+      }
     }
   },
   "order": [
@@ -266,6 +315,7 @@
     "hero_gMiQQK",
     "shop_BDNaxb",
     "combos_cjVLJw",
-    "bundles_FBVP6w"
+    "bundles_FBVP6w",
+    "reviews_Wk6d3c"
   ]
 }
