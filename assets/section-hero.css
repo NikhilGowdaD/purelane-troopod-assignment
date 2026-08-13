@@ -28,10 +28,11 @@
 
 .hero {
   position: relative;
-  padding: 48px 0;
+  padding: 32px 16px;
   background: var(--brand);
   color: var(--paper);
-  overflow: hidden;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .hero-grid {
@@ -39,6 +40,7 @@
   grid-template-columns: 1fr;
   gap: 24px;
   align-items: center;
+  max-width: 100%;
 }
 
 @media (min-width: 960px) {
@@ -51,6 +53,7 @@
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .badge {
@@ -60,15 +63,18 @@
   padding: 10px 14px;
   border-radius: 16px;
   font-size: 13px;
+  white-space: nowrap;
 }
 
 .d1 {
   font-family: 'Outfit', system-ui, sans-serif;
   text-transform: uppercase;
   font-weight: 800;
-  font-size: clamp(48px, 8.6vw, 112px);
+  font-size: clamp(36px, 8.6vw, 112px);
   line-height: 0.87;
   margin: 16px 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .lede {
@@ -217,4 +223,15 @@
 .hdots button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* Global overflow safety for mobile */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
 }
