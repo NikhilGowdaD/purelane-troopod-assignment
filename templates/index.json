@@ -213,6 +213,8 @@
             "product_3": "",
             "product_4": "",
             "product_5": "",
+            "price": 349,
+            "compare_at_total": 598,
             "perk_2": "Covers kitchen and laundry",
             "highlighted": false
           }
@@ -227,6 +229,8 @@
             "product_3": "",
             "product_4": "",
             "product_5": "",
+            "price": 499,
+            "compare_at_total": 897,
             "perk_2": "Covers kitchen and laundry",
             "highlighted": true
           }
@@ -241,6 +245,8 @@
             "product_3": "",
             "product_4": "",
             "product_5": "",
+            "price": 799,
+            "compare_at_total": 1495,
             "perk_2": "Covers kitchen and laundry",
             "highlighted": false
           }
